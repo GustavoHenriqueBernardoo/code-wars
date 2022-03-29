@@ -67,4 +67,44 @@ function find_average(array) {
   return total / array.length
 }
 
-console.log(find_average([]))
+find_average([])
+
+
+// ============ Counting sheep...
+
+function countSheeps(arrayOfSheep) {
+  let count = 0
+  for (let i = 0; i < arrayOfSheep.length; i++) {
+    if (arrayOfSheep[i] === true) {
+      count++
+    }
+  }
+  return count
+}
+
+// function countSheeps(arrayOfSheep) {
+//   return arrayOfSheep.filter(Boolean).length  
+// }
+
+let array1 = [true, true, true, false,
+  true, true, true, true,
+  true, false, true, false,
+  true, false, false, true,
+  true, true, true, true,
+  false, false, true, true]
+
+countSheeps(array1)
+
+
+// Beginner Series #1 School Paperwork
+
+function paperwork(n, m) {
+  return n > 0 && m > 0 ? n * m : 0
+}
+
+
+// ==== Set Alarm
+
+function setAlarm(employed, vacation) {
+  return employed && !vacation ? true : false
+}
