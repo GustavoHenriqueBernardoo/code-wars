@@ -108,3 +108,15 @@ function paperwork(n, m) {
 function setAlarm(employed, vacation) {
   return employed && !vacation ? true : false
 }
+
+
+// =============== Number of People in the Bus
+
+function number(busStops) {
+  const result = busStops.reduce((total, [peopleIn, peopleOut]) => {
+    return total += peopleIn - peopleOut
+  }, 0)
+  return result
+}
+
+console.log(number([[10, 0], [3, 5], [5, 8]]))
