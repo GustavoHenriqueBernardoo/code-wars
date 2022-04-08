@@ -119,4 +119,97 @@ function number(busStops) {
   return result
 }
 
-console.log(number([[10, 0], [3, 5], [5, 8]]))
+number([[10, 0], [3, 5], [5, 8]])
+
+
+
+// =======================Summing a number's digits
+
+function sumDigits(number) {
+  return Math.abs(number)
+    .toString()
+    .split('')
+    .reduce((acc, num) => +acc + +num, 0)
+}
+
+sumDigits(10)
+
+
+// ==================  Find the middle element
+
+function gimme(triplet) {
+  const sorted = triplet.slice().filter((a, b) => a - b)[1]
+
+  return triplet.indexOf(sorted)
+
+}
+
+gimme([5, 10, 14])
+
+
+
+// ==================  Disemvowel Trolls
+
+function disemvowel(str) {
+  const vowelRegex = /[aeiou]/gi
+  return str.split(vowelRegex).join('')
+  // a more cleaner way would be
+  // return str.replace(/[aeiou]/gi, '')
+
+}
+
+disemvowel('This website is for losers LOL!')
+
+// ========== Factorial
+
+function factorial(n) {
+  if (n < 0 || n > 12)
+    throw new RangeError()
+  if (n === 0) return 1
+
+  let final = n
+  for (let i = 1; i < n; i++) {
+    final *= i
+  }
+
+  return final
+}
+factorial(2)
+
+
+// ============ The museum of incredible dull things
+// function removeSmallest(numbers) {
+
+//   const min = Math.min(...numbers)
+//   return numbers.filter((num, index) => index !== num.indexOf(min))
+// }
+
+// console.log(removeSmallest([2, 2, 1, 2, 1]))
+
+
+
+// ============ Vowel Count
+
+function getCount(str) {
+  let vowelsCount = 0;
+  const regex = /[aeiou]/ig
+  str.split('').filter(letter => letter.match(regex) ? vowelsCount++ : vowelsCount)
+
+  return vowelsCount
+
+}
+
+getCount('abracadabra')
+
+// ======== Square Every Digit
+
+function squareDigits(num) {
+
+  const digit = num.toString().split('')
+  const result = digit.map(number => {
+    return number * number
+  })
+  return +result.join('')
+}
+
+console.log(squareDigits(9119))
