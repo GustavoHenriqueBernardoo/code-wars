@@ -212,4 +212,22 @@ function squareDigits(num) {
   return +result.join('')
 }
 
-console.log(squareDigits(9119))
+squareDigits(9119)
+
+
+// ============= Jaden Casing Strings
+String.prototype.toJadenCase = function () {
+  //...
+  //   const regex = /\s[a-z]/gi
+  // const str = "How can mirrors be real if our eyes aren't real"
+
+  const letters = this.split(' ')
+  const upper = letters.map(letter => {
+    for (let i = 0; i < letters.length; i++) {
+      // console.log(letter[0][i])
+      //     console.log(letter[i])
+      return letter.charAt(0).toUpperCase() + letter.slice(1)
+    }
+  })
+  return upper.join(' ')
+};
