@@ -231,3 +231,66 @@ String.prototype.toJadenCase = function () {
   })
   return upper.join(' ')
 };
+
+
+// ====================== Get Divisor
+function getDivisorsCnt(n) {
+  // todo
+  let count = 0
+  const randomNum = 100
+  for (let i = 1; i <= n; i++) {
+    // console.log(i % n)
+    if (n % i === 0) {
+      count++
+    }
+  }
+  return count
+}
+
+getDivisorsCnt(4)
+
+
+// ============ Remove anchor from URL
+
+function removeUrlAnchor(url) {
+  // TODO: complete
+  const regex = /#+\w+/g
+  return url.replace(regex, '')
+}
+
+removeUrlAnchor('www.codewars.com#about')
+
+// ========= The Coupon Code
+
+function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
+  return enteredCode === correctCode || Date.parse(currentDate) > Date.parse(expirationDate) ? true : false
+
+}
+checkCoupon('123', '123', 'September 5, 2014', 'October 1, 2014')
+
+// ====== Check the exam
+function checkExam(array1, array2) {
+  // let finalResult = 0
+  // for (let i = 0; i < array1.length; i++) {
+  //   if (array1[i] === '' || array2[i] === '') {
+  //     continue
+  //   }
+  //   if (array1[i] === array2[i]) {
+  //     finalResult += 4
+  //   } else if (array1[i] !== array2[i]) {
+  //     finalResult -= 1
+  //   }
+  // }
+
+  // return finalResult < 0 ? 0 : finalResult
+  let result = array2.reduce((total, answer, index) => {
+    console.log(total)
+    if (answer === array1[index]) return total += 4
+    else if (answer == 0) return total += 0
+    else return total -= 1
+  }, 0)
+  return result < 0 ? 0 : result
+}
+
+
+console.log(checkExam(["a", "a", "c", "b"], ["a", "a", "b", "b"]))
