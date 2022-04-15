@@ -217,20 +217,19 @@ squareDigits(9119)
 
 // ============= Jaden Casing Strings
 String.prototype.toJadenCase = function () {
-  //...
-  //   const regex = /\s[a-z]/gi
-  // const str = "How can mirrors be real if our eyes aren't real"
-
-  const letters = this.split(' ')
-  const upper = letters.map(letter => {
-    for (let i = 0; i < letters.length; i++) {
-      // console.log(letter[0][i])
-      //     console.log(letter[i])
-      return letter.charAt(0).toUpperCase() + letter.slice(1)
-    }
+  const words = this.split(' ')
+  const upper = words.map(letter => {
+    // console.log(letter[0][i])
+    //     console.log(letter[i])
+    return letter.charAt(0).toUpperCase() + letter.slice(1)
   })
   return upper.join(' ')
-};
+
+  // 15 april 2022
+  // const regex = /\s/gm
+  // const stringArr = this.split(' ')
+  // return stringArr.map(letter => letter[0].toUpperCase() + letter.slice(1)).join(' ')
+}
 
 
 // ====================== Get Divisor
@@ -284,7 +283,7 @@ function checkExam(array1, array2) {
 
   // return finalResult < 0 ? 0 : finalResult
   let result = array2.reduce((total, answer, index) => {
-    console.log(total)
+    // console.log(total)
     if (answer === array1[index]) return total += 4
     else if (answer == 0) return total += 0
     else return total -= 1
@@ -293,4 +292,30 @@ function checkExam(array1, array2) {
 }
 
 
-console.log(checkExam(["a", "a", "c", "b"], ["a", "a", "b", "b"]))
+checkExam(["a", "a", "c", "b"], ["a", "a", "b", "b"])
+
+
+// =============== Descending Order
+
+function descendingOrder(n) {
+  let result = n.toString().split('')
+  const final = result.map(number => {
+    return +number
+  })
+
+  return +final.sort((a, b) => a - b).reverse().join('')
+}
+
+descendingOrder(42145)
+
+
+// ============== List Filtering
+
+function filter_list(l) {
+  // Return a new array with the strings filtered out
+  return l.filter(elem => typeof elem !== 'string')
+}
+
+console.log(filter_list([1, 2, 'a', 'b']))
+
+
