@@ -262,7 +262,7 @@ removeUrlAnchor('www.codewars.com#about')
 // ========= The Coupon Code
 
 function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
-  return enteredCode === correctCode || Date.parse(currentDate) > Date.parse(expirationDate) ? true : false
+  return enteredCode === correctCode && Date.parse(expirationDate) >= Date.parse(currentDate) ? true : false
 
 }
 checkCoupon('123', '123', 'September 5, 2014', 'October 1, 2014')
@@ -316,6 +316,47 @@ function filter_list(l) {
   return l.filter(elem => typeof elem !== 'string')
 }
 
-console.log(filter_list([1, 2, 'a', 'b']))
+// console.log(filter_list([1, 2, 'a', 'b']))
+
+// ============= Double Char
+
+const doubleChar = (str) => str.split('').map(letter => letter + letter).join('')
+
+// =========Reverse words
+const reverseWords = (str) => {
+  const newArr = []
+  const words = str.split('').reverse(' ').join('')
+  const test = words.split(' ')
+  for (let i = test.length - 1; i >= 0; i--) {
+    newArr.push(test[i])
+  }
+
+  return newArr.join(' ')
+  // return str.split('').reverse().join('').split(' ').reverse().join(' ')
+}
 
 
+// console.log(reverseWords('The quick brown fox jumps over the lazy dog.'))
+
+// ==== Categorize New Member
+
+const openOrSenior = (...data) => {
+  let result = []
+  data.map(array => {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i][0] >= 55 && array[i][1] > 7) {
+        result.push('Senior')
+      } else {
+        result.push('Open')
+      }
+    }
+  })
+
+  return result
+
+
+  // Destructuring: [age, handicap] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+  // return data.map(([age, cap]) => age >= 55 && cap > 7 ? 'Senior' : 'Open')
+}
+
+openOrSenior([[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]])
