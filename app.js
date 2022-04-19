@@ -360,3 +360,39 @@ const openOrSenior = (...data) => {
 }
 
 openOrSenior([[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]])
+
+
+// =========Regex validate PIN code
+
+function validatePIN(pin) {
+  //return true or false
+  // const regex = /\d{4}|\d{6}/gm
+  // const regexSpecial = /:|_|-|\D/
+  // // console.log(pin.match(regex))
+
+  // if (pin.length === 4 || pin.length === 6) {
+  //   if (/^[a-z]|\.|\-/gi.test(pin) || pin.match(regexSpecial)) {
+  //     console.log('enter')
+  //     return false
+  //   }
+  //   console.log('2')
+  //   return true
+  // } else return false
+
+  return /^(\d{4}|\d{6})$/.test(pin)
+
+}
+
+validatePIN("123:")
+
+
+// ====Shortest Word
+
+function findShort(s) {
+  let newArr = []
+  const word = s.split(' ').map(x => newArr.push(x.length))
+  const min = Math.min(...newArr)
+  return min
+}
+
+findShort("bitcoin take over the world maybe who knows perhaps")
