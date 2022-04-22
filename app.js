@@ -396,3 +396,96 @@ function findShort(s) {
 }
 
 findShort("bitcoin take over the world maybe who knows perhaps")
+
+
+// =========== Isograms
+
+function isIsogram(str) {
+  if (str === '') return true
+  let newArr = []
+  let result = []
+  str.toLowerCase().split('')
+    .map((x, index) => {
+      // console.log(newArr.includes(x), index)
+      if (newArr.includes(x)) {
+        result.push(false)
+      } else {
+        result.push(true)
+        newArr.push(x)
+      }
+    }
+    )
+  // console.log(result)
+  return result.includes(false) ? false : true
+}
+
+isIsogram("")
+
+
+
+// Two to One
+
+function longest(s1, s2) {
+  // your code
+  const newConcat = s1.concat(s2)
+  const test = [...new Set(newConcat)]
+  // we have to convert to an array to sorted after, because set return an object
+  return test.sort().join('')
+
+}
+
+longest("aretheyhere", "yestheyarehere")
+
+// aehrsty
+
+
+// ========== A Needle in the Haystack
+function findNeedle(haystack) {
+  // your code here
+  const index = haystack.indexOf('needle')
+  return `found the needle at position ${index}`
+}
+
+findNeedle(['3', '123124234', undefined, 'needle', 'world', 'hay', 2, '3', true, false])
+
+
+// ======== Ones and Zeros
+const binaryArrayToNumber = arr => {
+  return parseInt(arr.join(''), 2)
+
+}
+
+binaryArrayToNumber([0, 0, 0, 1])
+
+// Testing: [0, 0, 0, 1] ==> 1
+// Testing: [0, 0, 1, 0] ==> 2
+// Testing: [0, 1, 0, 1] ==> 5
+// Testing: [1, 0, 0, 1] ==> 9
+// Testing: [0, 0, 1, 0] ==> 2
+// Testing: [0, 1, 1, 0] ==> 6
+// Testing: [1, 1, 1, 1] ==> 15
+// Testing: [1, 0, 1, 1] ==> 11
+
+
+// ======= Who likes it?
+
+function likes(names) {
+
+  if (names.length == 0) {
+    return 'no one likes this'
+  } else if (names.length == 1) {
+    return `${names} likes this`
+  }
+  else if (names.length == 2) {
+    return `${names[0]} and ${names[1]} like this`
+  }
+  else if (names.length == 3) {
+    return `${names[0]}, ${names[1]} and ${names[2]} like this`
+  }
+  else if (names.length >= 4) {
+    return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
+  }
+
+}
+
+console.log(likes(['Jacob', 'Lero', 'gustavo', 'guilherme']))
