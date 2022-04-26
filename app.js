@@ -488,4 +488,109 @@ function likes(names) {
 
 }
 
-console.log(likes(['Jacob', 'Lero', 'gustavo', 'guilherme']))
+likes(['Jacob', 'Lero', 'gustavo', 'guilherme'])
+
+// ============== Find the unique number
+
+function findUniq(arr) {
+
+  return arr.find(num => arr.indexOf(num) === arr.lastIndexOf(num))
+  // Last index of here show the last index found in a number, for example, the index of 0 here is 2. So when comparing if
+  // arr.indexOf(num) is equal to the lastindexOf(num) we are checking to see if is the same value, because if is not that means the value isn't unique
+}
+findUniq([1, 0, 0])  // result should be 1
+
+// ======================= Persistent Bugger
+function persistence(num) {
+  //code me
+  let count = 0
+  num = num.toString()
+
+  while (num.length > 1) {
+    // 1)num.split('') splits our string variable 'num' into an array of strings
+    // 2).map(Number) iterates over each string in the array and, utilizing the global
+    //    Number object, converts each instance into an integer
+    //    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+    // 3).reduce applies our accumulator and value against the function, reducing the array to a
+    //    single number (EX: accum (param a) * value in array (param b)
+    //    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+    // 4).toString() finally converts it back to a string
+    count++
+    num = num.split('').map(Number).reduce((a, b) => a * b).toString()
+    // console.log(num)
+  }
+  //return the number of times our loop ran
+  return count
+}
+
+persistence(39)
+
+
+// ======= Basic Mathematical Operations
+
+function basicOp(operation, value1, value2) {
+  // Code
+  switch (operation) {
+    case '+':
+      return value1 + value2
+
+    case '-':
+      return value1 - value2
+
+    case '*':
+      return value1 * value2
+
+    case '/':
+      return value1 / value2
+
+
+  }
+}
+
+basicOp('+', 4, 7)
+
+// ======== Simple multiplication
+function simpleMultiplication(number) {
+  if (number % 2 == 0) {
+    return number * 8
+  } else {
+    return number * 9
+  }
+}
+simpleMultiplication(1)
+
+// ==========Get the Middle Character
+function getMiddle(s) {
+  const middle = Math.floor((s.length - 1) / 2)
+  if (s.length % 2 == 0) {
+    return s.slice(middle, middle + 2)
+  } else {
+    return s[middle]
+  }
+}
+
+getMiddle("A")
+
+
+// ======== Invert values
+function invert(array) {
+  return array.map(num => -num)
+}
+
+invert([1, 2, 3, 4, 5])
+
+
+// ============ Array.diff
+
+function arrayDiff(a, b) {
+  // return a.filter((x, index) => {
+  //   return x !== b[index]
+  // })
+  if (a.length <= 0) return []
+  const array = a.concat(b)
+  return array.filter(num => !a.includes(num) || !b.includes(num))
+
+}
+
+console.log(arrayDiff([], [1, 2]))
+// should return  [1]
