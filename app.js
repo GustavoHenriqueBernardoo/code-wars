@@ -592,5 +592,31 @@ function arrayDiff(a, b) {
 
 }
 
-console.log(arrayDiff([], [1, 2]))
+arrayDiff([], [1, 2])
 // should return  [1]
+
+
+// ======== Filter out the geese
+
+function gooseFilter(birds) {
+  const geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+  return birds.filter(bird => !geese.includes(bird))
+};
+
+gooseFilter(["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]
+)// ,["Mallard", "Hook Bill", "Crested", "Blue Swedish"])
+
+
+// =========== Mexican Wave
+function wave(str) {
+  // Code here
+  let result = []
+  str.split('').forEach((char, index) => {
+    if (/[a-z]/.test(char)) {
+      result.push(str.slice(0, index) + char.toUpperCase() + str.slice(index + 1))
+    }
+  })
+  return result
+}
+
+console.log(wave("code wars"))
