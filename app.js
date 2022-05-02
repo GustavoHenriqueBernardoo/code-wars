@@ -619,4 +619,33 @@ function wave(str) {
   return result
 }
 
-console.log(wave("code wars"))
+wave("code wars")
+
+// ================ Count characters in your string
+
+function count(string) {
+  const count = {}
+  string.split('').forEach(letter => {
+    if (count[letter]) {
+      count[letter]++
+    } else {
+      count[letter] = 1
+    }
+  })
+  return count
+}
+
+count("daabdcdd")
+
+// === Highest and Lowest
+function highAndLow(numbers) {
+  // console.log(numbers.split(' '))
+  const arr = numbers.split(' ')
+  console.log(arr)
+  const min = Math.min(...arr)
+  const max = Math.max(...arr)
+  console.log(min, max)
+  return `${max} ${min}`
+
+}
+console.log(highAndLow("1 2 -3 4 5"))
