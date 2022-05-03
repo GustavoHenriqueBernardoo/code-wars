@@ -648,4 +648,53 @@ function highAndLow(numbers) {
   return `${max} ${min}`
 
 }
-console.log(highAndLow("1 2 -3 4 5"))
+highAndLow("1 2 -3 4 5")
+
+// ===========Grasshopper - Summation
+var summation = function (num) {
+  // Code here
+  let count = 0
+  for (let i = 0; i <= num; i++) {
+    count += i
+  }
+  return count
+}
+
+summation(8) //, 36
+
+// Beginner - Lost Without a Map
+function maps(x) {
+  return x.map(n => n * 2)
+}
+
+console.log(maps([1, 2, 3])) //, [2, 4, 6])
+
+// =========== Break camelCase
+
+function solution(string) {
+  const regex = /[A-Z]/g
+  // let result = ''
+  // let result2 = ''
+  // let final = ''
+  // string.split('').map((letter, idx) => {
+  //   // console.log(result)
+  //   if (result.length !== 0 && regex.test(letter)) {
+  //     result2 = ' ' + string.slice(idx)
+  //     final = result.replace('Testing', result2)
+
+  //   }
+  //   if (regex.test(letter) && result.length === 0) {
+  //     // console.log(string.substring(string.charAt(idx)))
+  //     result = string.slice(0, idx) + ' ' + string.slice(idx)
+  //     // console.log(result)
+  //     // string.charAt(idx).concat(' ')
+  //   }
+  // })
+
+  // console.log(final)
+  // return final
+  return string.replace(regex, ' $1')
+
+}
+
+console.log(solution('cameCase'))
