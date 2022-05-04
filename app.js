@@ -641,10 +641,8 @@ count("daabdcdd")
 function highAndLow(numbers) {
   // console.log(numbers.split(' '))
   const arr = numbers.split(' ')
-  console.log(arr)
   const min = Math.min(...arr)
   const max = Math.max(...arr)
-  console.log(min, max)
   return `${max} ${min}`
 
 }
@@ -667,12 +665,12 @@ function maps(x) {
   return x.map(n => n * 2)
 }
 
-console.log(maps([1, 2, 3])) //, [2, 4, 6])
+maps([1, 2, 3]) //, [2, 4, 6])
 
 // =========== Break camelCase
 
 function solution(string) {
-  const regex = /[A-Z]/g
+  const regex = /([A-Z])/g
   // let result = ''
   // let result2 = ''
   // let final = ''
@@ -694,7 +692,47 @@ function solution(string) {
   // console.log(final)
   // return final
   return string.replace(regex, ' $1')
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/n
 
 }
 
-console.log(solution('cameCase'))
+solution('cameCase')
+
+// ===The highest profit wins!
+
+function minMax(arr) {
+  const min = Math.min(...arr)
+  const max = Math.max(...arr)
+
+  return [min, max]; // fix me!
+}
+
+
+// ==== String repeat
+
+function repeatStr(n, s) {
+  let result = s
+  for (let i = 1; i < n; i++) {
+    result += s
+  }
+  return result
+}
+
+
+// Convert string to camel case
+function toCamelCase(str) {
+  const regex = /[-_]\w/g
+  return str.replace(regex, (char) => char.charAt(1).toUpperCase())
+  // let copy = str.slice()
+  // console.log(copy)
+  // str.split('').map((char, idx) => {
+  //   if (regex.test(char)) {
+  //     copy = str.charAt(idx + 1).toUpperCase()
+  //     copy = str.replace(regex, '')
+  //     console.log('true')
+  //   }
+  // })
+  // return copy
+}
+
+console.log(toCamelCase("the_stealth_warrior"))
