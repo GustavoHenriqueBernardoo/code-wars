@@ -762,7 +762,6 @@ function printerError(s) {
   // const regex = /[nopqrstuvwxyz]/
   const regex = /[nopqrstuvwxyz]/
   let count = 0
-  console.log(s.match(regex))
   for (let i = 0; i < s.length; i++) {
     if (regex.test(s[i]))
       count++
@@ -800,7 +799,22 @@ diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5])
 // Seek and Destroy
 
 function destroyer(arr, ...remove) {
-  // console.log(remove)
+  return arr.filter(num => remove.includes(num))
 }
 
 destroyer([1, 2, 3, 1, 2, 3], 2, 3)
+
+// Wherefore art thou
+
+function whatIsInAName(collection, source) {
+  const sourceKeys = Object.keys(source)
+  return collection.filter(obj => {
+    for (let i = 0; i < sourceKeys.length; i++) {
+      if (!obj.hasOwnProperty(sourceKeys[i]) || obj[sourceKeys[i] !== source[sourceKeys[i]]]) {
+        return false
+      }
+    }
+    return true
+  })
+
+}
