@@ -735,4 +735,72 @@ function toCamelCase(str) {
   // return copy
 }
 
-console.log(toCamelCase("the_stealth_warrior"))
+toCamelCase("the_stealth_warrior")
+
+// Reversed sequence
+
+const reverseSeq = n => {
+  let result = []
+  for (let i = n; i > 0; i--) {
+    result.push(i)
+  }
+  return result
+}
+
+
+function arrayDiff(a, b) {
+  const array = a.concat(b)
+  if (a.length === 0) return []
+  return array.filter(num => !a.includes(num) || !b.includes(num))
+}
+
+arrayDiff([1, 2], [1])
+
+function printerError(s) {
+  // your code
+  const rightRegex = /[a-m]/
+  // const regex = /[nopqrstuvwxyz]/
+  const regex = /[nopqrstuvwxyz]/
+  let count = 0
+  console.log(s.match(regex))
+  for (let i = 0; i < s.length; i++) {
+    if (regex.test(s[i]))
+      count++
+  }
+  return `${count}/${s.length}`
+}
+
+printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz")
+
+
+// ====================== FREE CODE CAMP
+
+function sumAll(arr) {
+  let result = 0
+  let max = Math.max(...arr)
+  let min = Math.min(...arr)
+  for (let i = min; i <= max; i++) {
+    result += i
+  }
+
+  return result
+}
+
+sumAll([1, 4])
+
+// Diff Two Arrays
+
+function diffArray(arr1, arr2) {
+  const newArr = arr1.concat(arr2)
+  return newArr.filter(num => !arr1.includes(num) || !arr2.includes(num))
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5])
+
+// Seek and Destroy
+
+function destroyer(arr, ...remove) {
+  // console.log(remove)
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3)
