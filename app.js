@@ -778,28 +778,57 @@ function abbrevName(name) {
   let result = ''
   const first = name.charAt(0).toUpperCase()
   const second = String(name.match(regex)).replace(' ', '').toUpperCase()
-  console.log(second)
-  // name.split('').map(letter => {
-  //   if (regex.test(letter)) {
-  //     console.log('yes')
-  //     result = letter.toUpperCase()
-
-
-
-
-  //   }
-  // })
   return `${first}.${second}`
 }
 
-console.log(abbrevName("Gustavo Henrique Bernardo"))
 
 
 
+// ====Parse nice int from char problem
+
+function getAge(inputString) {
+  // return the girl's correct age as an integer. Happy coding :) 
+  return +inputString.charAt(0)
+}
 
 
+function greet(language) {
+  const database = {
+    english: 'Welcome',
+    czech: 'Vitejte',
+    danish: 'Velkomst',
+    dutch: 'Welkom',
+    estonian: 'Tere tulemast',
+    finnish: 'Tervetuloa',
+    flemish: 'Welgekomen',
+    french: 'Bienvenue',
+    german: 'Willkommen',
+    irish: 'Failte',
+    italian: 'Benvenuto',
+    latvian: 'Gaidits',
+    lithuanian: 'Laukiamas',
+    polish: 'Witamy',
+    spanish: 'Bienvenido',
+    swedish: 'Valkommen',
+    welsh: 'Croeso'
+  }
+  return database[language] === undefined ? `${database['english']}` : database[language]
+}
 
+greet('IP_ADDRESS_INVALID')
 
+// === All Star Code Challenge #18
+
+function strCount(str, letter) {
+  //code here
+  let count = 0
+  str.split('').map(c => {
+    if (c === letter) {
+      count++
+    }
+  })
+  return count
+}
 
 
 // ====================== FREE CODE CAMP
