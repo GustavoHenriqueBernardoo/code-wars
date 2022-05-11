@@ -772,6 +772,36 @@ function printerError(s) {
 printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz")
 
 
+// ==== Abbreviate a Two Word Name
+function abbrevName(name) {
+  const regex = /\s\w/gm
+  let result = ''
+  const first = name.charAt(0).toUpperCase()
+  const second = String(name.match(regex)).replace(' ', '').toUpperCase()
+  console.log(second)
+  // name.split('').map(letter => {
+  //   if (regex.test(letter)) {
+  //     console.log('yes')
+  //     result = letter.toUpperCase()
+
+
+
+
+  //   }
+  // })
+  return `${first}.${second}`
+}
+
+console.log(abbrevName("Gustavo Henrique Bernardo"))
+
+
+
+
+
+
+
+
+
 // ====================== FREE CODE CAMP
 
 function sumAll(arr) {
