@@ -830,6 +830,74 @@ function strCount(str, letter) {
   return count
 }
 
+// ==All Star Code Challenge #2
+function findAverage(allStars) {
+  //code here
+  return allStars.reduce((total, n) => total += n, 0) / allStars.length
+}
+
+findAverage([17, 16, 16, 16, 16, 15, 17, 17, 15, 5, 17, 17, 16])
+
+// Sum Numbers
+function sum(numbers) {
+  return numbers.reduce((total, n) => total += n, 0)
+
+}
+
+// ====== Grasshopper - Check for factor
+
+function checkForFactor(base, factor) {
+  return base % factor === 0 ? true : false
+}
+
+// ==== Adding Big Numbers
+
+
+// THIS ONE IS NOT COMPLETE YET
+function add(a, b) {
+  let result = [parseFloat(a), parseFloat(b)]
+  console.log(result)
+  return String(result.reduce((total, n) => total + n, 0))
+}
+
+
+// ======= Counting Duplicates
+
+
+function duplicateCount(text) {
+  //...
+  let count = 0
+  const copy = []
+  text.toLowerCase().split('').map(letter => {
+    if (!copy.includes(letter)) {
+      copy.push(letter)
+      if (copy.indexOf(letter) === copy.lastIndexOf(letter)) {
+        count++
+      }
+    }
+  })
+  return count
+}
+
+duplicateCount("abcdefghijABCDEABCDABCaba")
+
+
+// ===== How many pages in a book?
+function amountOfPages(summary) {
+  let result = 0
+  let arr = ''
+  for (let i = 1; i <= summary; i++) {
+    arr += i
+    if (arr.length === summary) {
+      result = i
+    }
+  }
+  // console.log(arr)
+  return result
+}
+
+console.log(amountOfPages(185)) //97
+
 
 // ====================== FREE CODE CAMP
 
@@ -864,7 +932,6 @@ function destroyer(arr, ...remove) {
 destroyer([1, 2, 3, 1, 2, 3], 2, 3)
 
 // Wherefore art thou
-
 function whatIsInAName(collection, source) {
   const sourceKeys = Object.keys(source)
   return collection.filter(obj => {
@@ -875,5 +942,4 @@ function whatIsInAName(collection, source) {
     }
     return true
   })
-
 }
