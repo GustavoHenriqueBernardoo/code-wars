@@ -896,8 +896,66 @@ function amountOfPages(summary) {
   return result
 }
 
-console.log(amountOfPages(185)) //97
+amountOfPages(185) //97
 
+// ===== Valid parentheses
+
+function validParentheses(parens) {
+  // let r = 0
+  // let l = 0
+  // const newParens = parens.split('').map(paren => {
+  //   if (paren === '(') {
+  //     l++
+  //   } if (paren === ')') {
+  //     r++
+  //   }
+  // })
+  // let result = r + l
+  // if (result % 2 === 0 && r === l) {
+  //   return true
+  // } else {
+  //   return false
+  // }
+  let total = 0
+  for (let i = 0; i < parens.length; i++) {
+    // console.log(total)
+    if (parens[i] === '(') total++
+    if (parens[i] === ')') total--
+    if (total < 0) return false
+  }
+  return total == 0
+}
+validParentheses("())(()")
+
+
+
+// =================Convert number to reversed array of digits
+
+
+function digitize(n) {
+  //code here
+  return String(n).split('').reverse().map(Number)
+}
+
+digitize(35231)
+
+// ==== Sum of two lowest positive integers
+
+function sumTwoSmallestNumbers(numbers) {
+  const min1 = Math.min(...numbers)
+  numbers.forEach(number => {
+    if (number === min1) {
+      numbers.splice(numbers.indexOf(number), 1)
+    }
+  })
+  const min2 = Math.min(...numbers)
+
+  return min1 + min2
+}
+
+console.log(sumTwoSmallestNumbers([10, 2, 3453445, 3]))
+
+// 3453455
 
 // ====================== FREE CODE CAMP
 
@@ -908,7 +966,6 @@ function sumAll(arr) {
   for (let i = min; i <= max; i++) {
     result += i
   }
-
   return result
 }
 
