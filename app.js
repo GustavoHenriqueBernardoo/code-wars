@@ -953,9 +953,30 @@ function sumTwoSmallestNumbers(numbers) {
   return min1 + min2
 }
 
-console.log(sumTwoSmallestNumbers([10, 2, 3453445, 3]))
+sumTwoSmallestNumbers([10, 2, 3453445, 3])
 
 // 3453455
+
+function stray(numbers) {
+  return numbers.find((num, idx) => numbers.indexOf(num) === numbers.lastIndexOf(num))
+}
+
+stray([1, 1, 2])
+
+
+///////// Is it even?
+function testEven(n) {
+  //Your awesome code here!
+  return n % 2 === 0 ? true : false
+}
+
+// ======Opposite number
+
+function opposite(number) {
+  //your code here
+  return number - (number * 2)
+}
+
 
 // ====================== FREE CODE CAMP
 
@@ -993,10 +1014,24 @@ function whatIsInAName(collection, source) {
   const sourceKeys = Object.keys(source)
   return collection.filter(obj => {
     for (let i = 0; i < sourceKeys.length; i++) {
-      if (!obj.hasOwnProperty(sourceKeys[i]) || obj[sourceKeys[i] !== source[sourceKeys[i]]]) {
+      if (!obj.hasOwnProperty(sourceKeys[i]) || obj[sourceKeys[i]] !== source[sourceKeys[i]]) {
         return false
       }
     }
     return true
   })
 }
+
+
+
+function whatIsInAName(collection, source) {
+  const sourceKey = Object.keys(source)
+  return collection.filter(obj =>
+    sourceKey.every(key => {
+      // console.log('Object key :', obj[key], 'source Key:', source[key])
+      return obj.hasOwnProperty(key) && source[key] === obj[key]
+    }))
+
+}
+
+console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }))
