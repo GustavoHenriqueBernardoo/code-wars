@@ -977,6 +977,30 @@ function opposite(number) {
   return number - (number * 2)
 }
 
+function enough(cap, on, wait) {
+  const result = on + wait
+  if (cap - result >= 0) {
+    return 0
+  } else {
+    return result - cap
+  }
+  // return result > 0 ? result : result
+}
+
+enough(20, 5, 5)
+
+function expandedForm(num) {
+  return num.toString()
+    .split('')
+    .reverse()
+    .map((n, idx) => n * Math.pow(10, idx))
+    .filter(n => n > 0)
+    .reverse()
+    .join('+')
+}
+
+expandedForm(70304)
+
 
 // ====================== FREE CODE CAMP
 
@@ -1034,4 +1058,10 @@ function whatIsInAName(collection, source) {
 
 }
 
-console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }))
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" })
+
+function spinalCase(str) {
+  return str.split(/\s|_|(?=[A-Z])/).join('-').toLowerCase()
+}
+
+spinalCase('this-Is SpinalTap')
