@@ -1065,3 +1065,26 @@ function spinalCase(str) {
 }
 
 spinalCase('this-Is SpinalTap')
+
+function myReplace(str, before, after) {
+  if (/[A-Z]/.test(before)) {
+    return str.replace(before, after.charAt(0).toUpperCase() + after.slice(1))
+  } else if (/^[a-z]/.test(before)) {
+    return str.replace(before, after.charAt(0).toLowerCase() + after.slice(1))
+  }
+  else {
+    return str.replace(before, after)
+  }
+}
+
+console.log(myReplace("I think we should look up there", "up", "Down"))
+
+
+// ==== Missing letters
+
+function fearNotLetter(str) {
+  const regex = /a-z/
+  return str;
+}
+
+fearNotLetter("abce");
