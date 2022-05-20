@@ -1002,6 +1002,37 @@ function expandedForm(num) {
 expandedForm(70304)
 
 
+// ==========Unique In Order
+
+var uniqueInOrder = function (iterable) {
+  //your code here - remember iterable can be a string or an array
+  let newArr = []
+  // console.log(typeof iterable)
+  if (typeof iterable === 'array' || typeof iterable === 'object') {
+    iterable.map((letter, idx, arr) => {
+      if (letter !== arr[idx + 1]) {
+        newArr.push(letter)
+      }
+    })
+  } else {
+    iterable.toString().split('').map((letter, idx, arr) => {
+      if (letter !== arr[idx + 1]) {
+        newArr.push(letter)
+      }
+    })
+  }
+
+
+  return newArr
+}
+
+// console.log(uniqueInOrder([1, 2, 2, 3, 3]))
+//[1,2,3]
+
+// console.log(uniqueInOrder('AAAABBBCCDAABBB'))
+//['A', 'B', 'C', 'D', 'A', 'B']
+
+
 // ====================== FREE CODE CAMP
 
 function sumAll(arr) {
@@ -1077,14 +1108,28 @@ function myReplace(str, before, after) {
   }
 }
 
-console.log(myReplace("I think we should look up there", "up", "Down"))
+// === Pig Latin
 
-
-// ==== Missing letters
-
-function fearNotLetter(str) {
-  const regex = /a-z/
-  return str;
+function translatePigLatin(str) {
+  let result = ''
+  let consonantRegex = /^[bcdfghjklmnpqrstvwxys]?[bcdfghjklmnpqrstvwxys]?[bcdfghjklmnpqrstvwxys]?[bcdfghjklmnpqrstvwxys]/gm
+  if (consonantRegex.test(str)) {
+    const strLength = String(str.match(consonantRegex)).length
+    result = str.slice(strLength) + str.match(consonantRegex) + 'ay'
+    return result
+  } else {
+    return result = str.slice(0) + 'way'
+  }
 }
 
-fearNotLetter("abce");
+// === Missing letters
+function fearNotLetter(str) {
+  const regex = /[abcdefghijklmnopqrstuvwxyz]/gi
+  for (let i = 0; i < str.length; i++) {
+    console.log(!regex.test(str))
+    console.log(str[i])
+    console.log(str[i].match(regex))
+  }
+}
+
+console.log(fearNotLetter("abce"))
