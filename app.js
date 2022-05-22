@@ -1033,6 +1033,23 @@ var uniqueInOrder = function (iterable) {
 //['A', 'B', 'C', 'D', 'A', 'B']
 
 
+function getChar(c) {
+  return String.fromCharCode(c)
+}
+
+getChar(200)
+
+// ====== What's the real floor?
+
+function getRealFloor(n) {
+  if (n > 12) return n - 2
+  else if (n === 0) return 0
+  else if (n < 0) return n
+  else return n - 1
+}
+
+console.log(getRealFloor(0))
+
 // ====================== FREE CODE CAMP
 
 function sumAll(arr) {
@@ -1126,10 +1143,10 @@ function translatePigLatin(str) {
 function fearNotLetter(str) {
   const regex = /[abcdefghijklmnopqrstuvwxyz]/gi
   for (let i = 0; i < str.length; i++) {
-    console.log(!regex.test(str))
-    console.log(str[i])
-    console.log(str[i].match(regex))
+    // console.log(!regex.test(str))
+    // console.log(str[i])
+    // console.log(str[i].match(regex))
   }
 }
 
-console.log(fearNotLetter("abce"))
+// console.log(fearNotLetter("abce"))
