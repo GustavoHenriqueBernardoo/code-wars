@@ -1058,15 +1058,54 @@ function longestConsec(strarr, k) {
   let count = 0
   strarr.map(elem => {
     for (let i = 1; i <= k; i++) {
-      console.log(elem)
-      console.log(elem[i])
+      // console.log(elem)
+      // console.log(elem[i])
     }
   })
 
   return newArr
 }
 
-console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2))
+longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2)
+
+// Count of positives / sum of negatives
+
+function countPositivesSumNegatives(input) {
+  let count = 0
+  let sum = 0
+  input.map(num => {
+    if (num <= 0) {
+      sum += num
+    } else {
+      count++
+    }
+
+
+  })
+  return [count, sum]
+}
+
+countPositivesSumNegatives([0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14])
+
+// =Multiples of 3 or 5
+function solution(n1, n2) {
+  let multiples1 = 0
+  let multiples2 = 0
+  for (let i = 1; i < 10; i++) {
+    if (n1 % i === 0) {
+      console.log(i)
+      multiples1 += i
+    }
+    if (n2 % i === 0) {
+      console.log(i)
+      multiples2 += i
+
+    }
+  }
+  return parseInt(multiples1 + multiples2)
+}
+
+console.log(solution(3, 5))
 
 // ====================== FREE CODE CAMP
 
@@ -1182,4 +1221,4 @@ function palindrome(str) {
   }
 }
 
-console.log(palindrome("_eye"))
+palindrome("_eye")
