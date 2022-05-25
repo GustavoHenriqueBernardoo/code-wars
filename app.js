@@ -1048,7 +1048,25 @@ function getRealFloor(n) {
   else return n - 1
 }
 
-console.log(getRealFloor(0))
+getRealFloor(0)
+
+// ======== Consecutive strings
+
+function longestConsec(strarr, k) {
+  // your code
+  let newArr = []
+  let count = 0
+  strarr.map(elem => {
+    for (let i = 1; i <= k; i++) {
+      console.log(elem)
+      console.log(elem[i])
+    }
+  })
+
+  return newArr
+}
+
+console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2))
 
 // ====================== FREE CODE CAMP
 
@@ -1150,3 +1168,18 @@ function fearNotLetter(str) {
 }
 
 // console.log(fearNotLetter("abce"))
+
+// Palindrome Checker
+
+function palindrome(str) {
+  const strReverse = str.split('').reverse().join('').replace(/\W|_/gm, '').toLowerCase()
+  const originalStr = str.replace(/\W|_/gm, '').toLowerCase()
+
+  if (originalStr === strReverse) {
+    return true
+  } else {
+    return false
+  }
+}
+
+console.log(palindrome("_eye"))
