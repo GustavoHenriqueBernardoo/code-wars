@@ -1088,24 +1088,57 @@ function countPositivesSumNegatives(input) {
 countPositivesSumNegatives([0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14])
 
 // =Multiples of 3 or 5
-function solution(n1, n2) {
-  let multiples1 = 0
-  let multiples2 = 0
-  for (let i = 1; i < 10; i++) {
-    if (n1 % i === 0) {
-      console.log(i)
-      multiples1 += i
-    }
-    if (n2 % i === 0) {
-      console.log(i)
-      multiples2 += i
-
+function solution(num) {
+  let count = 0
+  for (let i = 0; i < num; i) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      count += i
     }
   }
-  return parseInt(multiples1 + multiples2)
+
+  return count
 }
 
-console.log(solution(3, 5))
+function abbrevName(name) {
+  const name2 = name.split(' ')
+  return `${name2[0][0]}.${name2[1][0]}`.toUpperCase()
+}
+
+abbrevName("Sam Harris")
+
+// ==== Two to One
+
+
+function longest(s1, s2) {
+  const newVar = s1.concat(s2).split('').sort()
+  const newVar2 = new Set(newVar)
+  return Array.from(newVar2).join('')
+}
+
+longest("aretheyhere", "yestheyarehere")
+
+// ====Find the unique number
+
+
+function findUniq(arr) {
+
+  return arr.find(num => arr.indexOf(num) === arr.lastIndexOf(num))
+
+}
+
+findUniq([1, 1, 1, 2, 1, 1]
+)
+
+// === array Diff
+
+function arrayDiff(a, b) {
+  return a.filter(elem => !b.includes(elem))
+
+}
+
+console.log(arrayDiff([1, 2], [1]))
+
+
 
 // ====================== FREE CODE CAMP
 
