@@ -1136,9 +1136,35 @@ function arrayDiff(a, b) {
 
 }
 
-console.log(arrayDiff([1, 2], [1]))
+arrayDiff([1, 2], [1])
 
+// === Sum without highest and lowest number
 
+function sumArray(array) {
+  if (array === null || array.length === 0) return 0
+  const min = Math.min(...array)
+  const max = Math.max(...array)
+  console.log(array)
+  return array.filter(num => min !== num && max !== num).reduce((total, n) => total + n, 0)
+}
+
+sumArray([0, 1, 6, 10, 10])
+
+function XO(str) {
+  let countX = 0
+  let countO = 0
+  for (let i = 0; i < str.length; i++) {
+    if (str[i].toLowerCase() === 'x') {
+      countX++
+    }
+    if (str[i].toLowerCase() === 'o') {
+      countO++
+    }
+
+  }
+
+  return countX === countO ? true : false
+}
 
 // ====================== FREE CODE CAMP
 
@@ -1231,15 +1257,16 @@ function translatePigLatin(str) {
 
 // === Missing letters
 function fearNotLetter(str) {
-  const regex = /[abcdefghijklmnopqrstuvwxyz]/gi
   for (let i = 0; i < str.length; i++) {
-    // console.log(!regex.test(str))
-    // console.log(str[i])
-    // console.log(str[i].match(regex))
+    const code = str.charCodeAt(i)
+    if (code !== str.charCodeAt(0) + i) {
+      return String.fromCharCode(code - 1)
+    }
   }
+  return undefined
 }
 
-// console.log(fearNotLetter("abce"))
+console.log(fearNotLetter("abce"))
 
 // Palindrome Checker
 
