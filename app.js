@@ -1144,7 +1144,6 @@ function sumArray(array) {
   if (array === null || array.length === 0) return 0
   const min = Math.min(...array)
   const max = Math.max(...array)
-  console.log(array)
   return array.filter(num => min !== num && max !== num).reduce((total, n) => total + n, 0)
 }
 
@@ -1165,6 +1164,34 @@ function XO(str) {
 
   return countX === countO ? true : false
 }
+
+// == Sort and Star
+
+function twoSort(s) {
+  s.sort()
+  return s[0].split('').join('***')
+}
+
+
+twoSort(["turns", "out", "random", "test", "cases", "are", "easier", "than", "writing", "out", "basic", "ones"])
+
+
+// Sum The Strings
+function sumStr(a, b) {
+  return String(+a + +b)
+}
+
+sumStr("4", "5")
+
+// === Removing Elements
+
+function removeEveryOther(arr) {
+  //your code here
+  return arr.filter((elem, idx) => idx % 2 === 0)
+
+}
+
+removeEveryOther(['Hello', 'Goodbye', 'Hello Again'])
 
 // ====================== FREE CODE CAMP
 
@@ -1266,7 +1293,7 @@ function fearNotLetter(str) {
   return undefined
 }
 
-console.log(fearNotLetter("abce"))
+fearNotLetter("abce")
 
 // Palindrome Checker
 
