@@ -1293,6 +1293,33 @@ function translatePigLatin(str) {
   }
 }
 
+// ===DNA Pairing
+
+function pairElement(str) {
+  // CG or GC 
+  // AT or TA
+  let result = []
+  str.split('').map(dna => {
+
+    if (dna === 'G') {
+      result.push([dna, 'C'])
+    }
+    else if (dna === 'C') {
+      result.push([dna, 'G'])
+    }
+    else if (dna === 'A') {
+      result.push([dna, 'T'])
+    }
+    else if (dna === 'T') {
+      result.push([dna, 'A'])
+    }
+  })
+
+  return result
+}
+
+pairElement("ATCGA")
+
 // === Missing letters
 function fearNotLetter(str) {
   for (let i = 0; i < str.length; i++) {
@@ -1304,7 +1331,40 @@ function fearNotLetter(str) {
   return undefined
 }
 
+// === Missing letters AGAIN
+
 fearNotLetter("abce")
+
+function fearNotLetter(str) {
+  let correct = str.charCodeAt(0)
+  let result = ''
+  for (let i = 0; i < str.length; i++) {
+    if (correct !== str.charCodeAt(i)) {
+      result = String.fromCharCode(correct)
+      break
+    }
+    correct++
+    if (i === str.length - 1) return undefined
+  }
+
+  return result
+}
+
+// ==== Sorted Union
+
+function uniteUnique(...arr) {
+  // const newArr = Array.from(new Set(...arr))
+  let newArr = []
+  arr.filter((array, idx) => {
+    for (let i = 0; i < array.length; i++) {
+      newArr.push(array[i])
+    }
+  })
+  console.log(newArr)
+  return Array.from(new Set(newArr))
+}
+
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]))
 
 // Palindrome Checker
 
