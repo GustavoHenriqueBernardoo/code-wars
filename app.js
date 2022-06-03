@@ -1364,7 +1364,32 @@ function uniteUnique(...arr) {
   return Array.from(new Set(newArr))
 }
 
-console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]))
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1])
+
+function sumPrimes(num) {
+  function isPrime(num) {
+    for (let i = 2; i < Math.sqrt(num); i++) {
+      console.log(i)
+      if (num % i > 0) {
+        return false
+      }
+      return true
+    }
+  }
+  let sum = 0
+  for (let i = 2; i < Math.sqrt(num); i++) {
+    if (isPrime(i)) {
+      sum += i
+    }
+  }
+  return sum
+}
+
+
+console.log(isPrime(10))
+
+
+// 2, 3, 5, 7, 11, 13.
 
 // Palindrome Checker
 
