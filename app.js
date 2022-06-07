@@ -1204,6 +1204,49 @@ function hello(name) {
   }
 }
 
+function smash(words) {
+  return words.join(' ')
+};
+smash(['hello', 'world', 'this', 'is', 'great'])
+
+// ==== Correct the mistakes of the character recognition software
+
+function correct(string) {
+  let arr = []
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === '0') {
+      arr.push('O')
+    } else if (string[i] === '5') {
+      arr.push('S')
+
+    } else if (string[i] === '1') {
+      arr.push('I')
+
+    } else {
+      arr.push(string[i])
+    }
+  }
+  return arr.join('')
+}
+
+function findMultiples(integer, limit) {
+  //your code here
+  let arr = []
+  for (let i = 1; i < limit + 1; i++) {
+    let multiple = integer * i
+    console.log(multiple, i, limit)
+    if (multiple > limit) {
+      console.log('here')
+      break
+    } else {
+      arr.push(multiple)
+    }
+  }
+  return arr
+}
+
+console.log(findMultiples(1, 2))
+
 // ====================== FREE CODE CAMP
 
 function sumAll(arr) {
@@ -1360,7 +1403,7 @@ function uniteUnique(...arr) {
       newArr.push(array[i])
     }
   })
-  console.log(newArr)
+  // console.log(newArr)
   return Array.from(new Set(newArr))
 }
 
@@ -1386,7 +1429,6 @@ function sumPrimes(num) {
 }
 
 
-console.log(isPrime(10))
 
 
 // 2, 3, 5, 7, 11, 13.
