@@ -1234,7 +1234,7 @@ function findMultiples(integer, limit) {
   let arr = []
   for (let i = 1; i < limit + 1; i++) {
     let multiple = integer * i
-    console.log(multiple, i, limit)
+    // console.log(multiple, i, limit)
     if (multiple > limit) {
       console.log('here')
       break
@@ -1245,7 +1245,23 @@ function findMultiples(integer, limit) {
   return arr
 }
 
-console.log(findMultiples(1, 2))
+findMultiples(1, 2)
+
+// === String incrementer
+
+function incrementString(strng) {
+  // return incrementedString
+  const regex = /\d*/g
+  if (regex.test(strng)) {
+    strign = strng.split(' ')
+  } else {
+    return strng + '1'
+  }
+  // console.log(regex.test(strng))
+}
+
+incrementString("foobar001")
+
 
 // ====================== FREE CODE CAMP
 
@@ -1427,6 +1443,29 @@ function sumPrimes(num) {
   }
   return sum
 }
+
+// ====Binary Agents
+function binaryAgent(str) {
+  const newStr = str.split(' ')
+  return newStr.map(bi => String.fromCharCode(parseInt(bi, 2))).join('')
+}
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111")
+
+// ==Everything Be True
+
+function truthCheck(collection, pre) {
+  console.log(pre)
+  let result = false
+  const newCollection = collection.map(obj => {
+    return obj[pre]
+  }
+  )
+
+  console.log(newCollection.includes(false) ? false : true)
+}
+
+console.log(truthCheck([{ name: "Quincy", role: "Founder", isBot: false }, { name: "Naomi", role: "", isBot: false }, { name: "Camperbot", role: "Bot", isBot: true }], "isBot"))
 
 
 
