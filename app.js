@@ -1458,14 +1458,27 @@ function truthCheck(collection, pre) {
   console.log(pre)
   let result = false
   const newCollection = collection.map(obj => {
-    return obj[pre]
-  }
-  )
-
-  console.log(newCollection.includes(false) ? false : true)
+    return !!obj[pre]
+  })
+  console.log(newCollection)
+  return newCollection.includes(false) ? false : true
 }
 
-console.log(truthCheck([{ name: "Quincy", role: "Founder", isBot: false }, { name: "Naomi", role: "", isBot: false }, { name: "Camperbot", role: "Bot", isBot: true }], "isBot"))
+truthCheck([{ name: "Quincy", role: "Founder", isBot: false }, { name: "Naomi", role: "", isBot: false }, { name: "Camperbot", role: "Bot", isBot: true }], "isBot")
+
+// ==== Arguments Optional
+function addTogether() {
+  const [first, second] = arguments
+  if (typeof first !== 'number') return undefined
+  if (second === undefined) {
+    return (second) => addTogether(first, second)
+  }
+  if (typeof second !== 'number') return undefined
+
+
+  return first + second
+}
+addTogether(2, 3)
 
 
 
