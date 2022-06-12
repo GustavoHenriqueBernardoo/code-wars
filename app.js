@@ -1444,10 +1444,26 @@ function sumPrimes(num) {
   return sum
 }
 
+// === Drop it
+function dropElements(arr, func) {
+  // return arr.filter(num => func(num) )
+  for (let i = 0; i < arr.length; i++) {
+    if (func(arr[i])) {
+      return arr.slice(i)
+    }
+  }
+
+  return []
+}
+
+// console.log(dropElements([1, 2, 3, 4], function(n) {return n >= 3;}))
+// console.log(dropElements([0, 1, 0, 1], function(n) {return n === 1;}))
+
 // ====Binary Agents
 function binaryAgent(str) {
-  const newStr = str.split(' ')
-  return newStr.map(bi => String.fromCharCode(parseInt(bi, 2))).join('')
+  // const newStr = str.split(' ')
+  // return newStr.map(bi => String.fromCharCode(parseInt(bi, 2))).join('')
+  return str.split(' ').map(code => String.fromCharCode(parseInt(code, 2))).join('')
 }
 
 binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111")
@@ -1456,7 +1472,6 @@ binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 0110
 
 function truthCheck(collection, pre) {
   console.log(pre)
-  let result = false
   const newCollection = collection.map(obj => {
     return !!obj[pre]
   })
@@ -1468,17 +1483,27 @@ truthCheck([{ name: "Quincy", role: "Founder", isBot: false }, { name: "Naomi", 
 
 // ==== Arguments Optional
 function addTogether() {
-  const [first, second] = arguments
-  if (typeof first !== 'number') return undefined
-  if (second === undefined) {
-    return (second) => addTogether(first, second)
-  }
-  if (typeof second !== 'number') return undefined
 
+  const [first, second] = arguments
+
+  if (typeof first !== 'number') {
+    return undefined
+  }
+  if (second === undefined) {
+    return function (second) {
+      if (typeof second !== 'number') return undefined
+      return first + second
+    }
+  }
+  if (typeof second !== 'number') {
+    return undefined
+  }
 
   return first + second
 }
+
 addTogether(2, 3)
+// addTogether(2)([3])
 
 
 
