@@ -1263,6 +1263,38 @@ function incrementString(strng) {
 incrementString("foobar001")
 
 
+
+// ==Simple Fun #176: Reverse Letter
+
+function reverseLetter(str) {
+  //coding and coding..
+  const regex = /\d|\W|_/g
+  return str.replace(regex, '').split('').reverse().join('')
+
+}
+
+reverseLetter("krish21an")
+// nortlu
+
+// == Find the capitals
+
+const capitals = function (word) {
+
+  const regex = /[A-Z]/gm
+  const upperCase = word.match(regex)
+  let arr = []
+  for (let i = 0; i < word.length; i++) {
+    // console.log(word.indexOf(upperCase[i]))
+    if (word.indexOf(upperCase[i]) >= 0) {
+      arr.push(word.indexOf(upperCase[i]))
+    }
+  }
+  return arr
+}
+
+console.log(capitals('CodEWaRs'))
+// , [0,3,4,6]
+
 // ====================== FREE CODE CAMP
 
 function sumAll(arr) {
@@ -1471,11 +1503,10 @@ binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 0110
 // ==Everything Be True
 
 function truthCheck(collection, pre) {
-  console.log(pre)
+  // console.log(pre)
   const newCollection = collection.map(obj => {
     return !!obj[pre]
   })
-  console.log(newCollection)
   return newCollection.includes(false) ? false : true
 }
 
@@ -1504,8 +1535,6 @@ function addTogether() {
 
 addTogether(2, 3)
 // addTogether(2)([3])
-
-
 
 
 // 2, 3, 5, 7, 11, 13.
