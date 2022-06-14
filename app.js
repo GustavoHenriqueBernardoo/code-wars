@@ -1292,8 +1292,33 @@ const capitals = function (word) {
   return arr
 }
 
-console.log(capitals('CodEWaRs'))
+capitals('CodEWaRs')
 // , [0,3,4,6]
+
+// ====Replace all vowel to exclamation mark in the sentence
+function replace(s) {
+  //coding and coding....
+  return s.replace(/[aeiou]/gi, '!')
+}
+
+replace("!Hi! Hi!")
+
+// Make a function that does arithmetic!
+function arithmetic(a, b, operator) {
+  //your code here!
+  if (operator === 'add') {
+    return a + b
+  }
+  if (operator === 'subtract') {
+    return a - b
+  }
+  if (operator === 'miltiply') {
+    return a * b
+  }
+  if (operator === 'divide') {
+    return a / b
+  }
+}
 
 // ====================== FREE CODE CAMP
 
