@@ -1640,12 +1640,19 @@ const Person = function (firstAndLast) {
 
 function convertToRoman(num) {
   const romanTable = {
+    3000: 'MMM',
+    2000: 'MM',
     1000: 'M',
     900: 'CM',
+    800: 'DCCC',
+    700: 'DCC',
+    600: 'DC',
     500: 'D',
     400: 'CD',
     100: 'C',
     90: 'XC',
+    80: 'LXXX',
+    60: 'LX',
     50: 'L',
     40: 'XL',
     20: 'XX',
@@ -1669,18 +1676,33 @@ function convertToRoman(num) {
       return romanTable[strNum[i]]
     } else if (numLength === 2) {
       const first = strNum[0] + 0
-      const second = romanTable[strNum[1]]
-      console.log(first, second)
+      // const second = romanTable[strNum[1]]
+      // console.log(first, second)
       return `${romanTable[first]}${romanTable[strNum[1]]}`
+    } else if (numLength === 3) {
+      const first = strNum[0] + 0 + 0
+      const second = strNum[1] + 0
+      const third = strNum[2]
+      const final = +first + +second + +third
+      if (second.includes('00') && third === '0') {
+        console.log('enter')
+        return `${romanTable[final]}`
+      }
+      return `${romanTable[first]}${second !== '00' ? romanTable[second] : ''}${romanTable[third]}`
+
+    } else if (numLength === 4) {
+      const first = strNum[0] + 0 + 0 + 0
+      const second = strNum[1] + 0 + 0
+      const third = strNum[2] + 0
+      const forth = strNum[3]
+      const final = +first + +second + +third + +forth
+      if (second.includes('000') && third === '00' && forth === '0') {
+        console.log('enter')
+        return `${romanTable[final]}`
+      }
+      return `${romanTable[first]}${second !== '000' ? romanTable[second] : ''}${third !== '00' ? romanTable[third] : ''}${romanTable[forth]}`
     }
   }
-  //  return String(num).split('').map(elem => {
-  //    if(numLength <= 1){
-  //      return romanTable[elem]
-  //    }else if(numLength === 2){
-  //      return romanTable[elem + 0]
-  //    }
-  //  })
 }
 
-console.log(convertToRoman(29))
+console.log(convertToRoman(2014))
