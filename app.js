@@ -1312,7 +1312,7 @@ function arithmetic(a, b, operator) {
   if (operator === 'subtract') {
     return a - b
   }
-  if (operator === 'miltiply') {
+  if (operator === 'multiply') {
     return a * b
   }
   if (operator === 'divide') {
@@ -1578,3 +1578,109 @@ function palindrome(str) {
 }
 
 palindrome("_eye")
+
+// =Steamroller
+
+function steamrollArray(arr) {
+  let newArr = []
+
+  arr.forEach(elem => {
+    if (Array.isArray(elem)) {
+      newArr.push(...steamrollArray(elem))
+    } else {
+      newArr.push(elem)
+    }
+  })
+
+  return newArr
+}
+
+// === Make a Person
+
+const Person = function (firstAndLast) {
+
+  let fullName = firstAndLast
+  // console.log(firstAndLast)
+
+  this.getFullName = function () {
+    return fullName;
+  }
+
+  this.setFullName = function (firstAndLast) {
+    fullName = firstAndLast
+
+  }
+
+  this.getFirstName = function () {
+    return fullName.split(' ')[0]
+  }
+  this.getLastName = function () {
+    return fullName.split(' ')[1]
+  }
+
+  this.setFirstName = function (first) {
+    fullName = `${first} ${fullName.split(' ')[1]}`
+  }
+
+  this.setLastName = function (last) {
+    fullName = `${fullName.split(' ')[0]} ${last}`
+  }
+}
+
+// const bob = new Person('Bob Ross')
+// console.log(bob.getFullName())
+// // console.log(bob.getFirstName())
+// // console.log(bob.getLastName())
+// console.log(bob.setFirstName('gustavo'))
+// console.log(bob.setLastName('Bernardo'))
+// console.log(bob.getFullName())
+
+
+// Roman Numeral Converter
+
+function convertToRoman(num) {
+  const romanTable = {
+    1000: 'M',
+    900: 'CM',
+    500: 'D',
+    400: 'CD',
+    100: 'C',
+    90: 'XC',
+    50: 'L',
+    40: 'XL',
+    20: 'XX',
+    10: 'X',
+    9: 'IX',
+    8: 'VIII',
+    7: 'VII',
+    6: 'VI',
+    5: 'V',
+    4: 'IV',
+    3: 'III',
+    2: 'II',
+    1: 'I',
+  }
+
+  const numLength = String(num).length
+  const strNum = String(num)
+
+  for (let i = 0; i < numLength; i++) {
+    if (numLength <= 1) {
+      return romanTable[strNum[i]]
+    } else if (numLength === 2) {
+      const first = strNum[0] + 0
+      const second = romanTable[strNum[1]]
+      console.log(first, second)
+      return `${romanTable[first]}${romanTable[strNum[1]]}`
+    }
+  }
+  //  return String(num).split('').map(elem => {
+  //    if(numLength <= 1){
+  //      return romanTable[elem]
+  //    }else if(numLength === 2){
+  //      return romanTable[elem + 0]
+  //    }
+  //  })
+}
+
+console.log(convertToRoman(29))
