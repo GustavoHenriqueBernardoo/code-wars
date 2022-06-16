@@ -1320,6 +1320,24 @@ function arithmetic(a, b, operator) {
   }
 }
 
+// === Form The Minimum
+
+function minValue(values) {
+  return parseInt([... new Set(values)].sort().join(''))
+
+}
+
+minValue([4, 7, 5, 7])
+
+// ==== Return String of First Characters
+
+function makeString(s) {
+  // ...
+  return s.split(' ').map(w => w.charAt(0)).join('')
+}
+
+console.log(makeString("sees eyes xray yoat"))
+
 // ====================== FREE CODE CAMP
 
 function sumAll(arr) {
@@ -1597,35 +1615,63 @@ function steamrollArray(arr) {
 
 // === Make a Person
 
-const Person = function (firstAndLast) {
+// const Person = function (firstAndLast) {
 
-  let fullName = firstAndLast
-  // console.log(firstAndLast)
+//   let fullName = firstAndLast
+//   // console.log(firstAndLast)
+
+//   this.getFullName = function () {
+//     return fullName;
+//   }
+
+//   this.setFullName = function (firstAndLast) {
+//     fullName = firstAndLast
+
+//   }
+
+//   this.getFirstName = function () {
+//     return fullName.split(' ')[0]
+//   }
+//   this.getLastName = function () {
+//     return fullName.split(' ')[1]
+//   }
+
+//   this.setFirstName = function (first) {
+//     fullName = `${first} ${fullName.split(' ')[1]}`
+//   }
+
+//   this.setLastName = function (last) {
+//     fullName = `${fullName.split(' ')[0]} ${last}`
+//   }
+// }
+
+
+const Person = function (firstAndLast) {
+  let [first, second] = firstAndLast.split(' ')
+  // console.log(first, last)
 
   this.getFullName = function () {
-    return fullName;
-  }
-
-  this.setFullName = function (firstAndLast) {
-    fullName = firstAndLast
-
-  }
-
+    return first + ' ' + second
+  };
   this.getFirstName = function () {
-    return fullName.split(' ')[0]
-  }
+    return first
+  };
   this.getLastName = function () {
-    return fullName.split(' ')[1]
-  }
+    return second
+  };
+  this.setFirstName = function (_first) {
+    first = _first
+  };
+  this.setLastName = function (_last) {
+    second = _last
+  };
+  this.setFullName = function (_fullName) {
+    [first, second] = _fullName.split(' ')
+  };
+};
 
-  this.setFirstName = function (first) {
-    fullName = `${first} ${fullName.split(' ')[1]}`
-  }
+const bob = new Person('Bob Ross');
 
-  this.setLastName = function (last) {
-    fullName = `${fullName.split(' ')[0]} ${last}`
-  }
-}
 
 // const bob = new Person('Bob Ross')
 // console.log(bob.getFullName())
@@ -1705,4 +1751,67 @@ function convertToRoman(num) {
   }
 }
 
-console.log(convertToRoman(2014))
+convertToRoman(2014)
+
+
+// === Caesars Cipher
+
+function rot13(str) {
+  const cipherTable = {
+    A: 'N',
+    N: 'A',
+    B: 'O',
+    O: 'B',
+    C: 'P',
+    P: 'C',
+    D: 'Q',
+    Q: 'D',
+    E: 'R',
+    R: 'E',
+    F: 'S',
+    S: 'F',
+    G: 'T',
+    T: 'G',
+    H: 'U',
+    U: 'H',
+    I: 'V',
+    V: 'I',
+    J: 'W',
+    W: 'J',
+    K: 'X',
+    X: 'K',
+    L: 'Y',
+    Y: 'L',
+    M: 'Z',
+    Z: 'M',
+  }
+  const regex = /\s|\W+/gm
+  return str.split('').map(letter => {
+    if (letter.match(regex) !== null) {
+      return letter
+    }
+
+    return cipherTable[letter]
+  }).join('')
+
+
+}
+
+rot13("SERR PBQR PNZC")
+
+// Telephone Number Validator
+
+function telephoneCheck(str) {
+
+  const regex = /^[1]?[ ]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+
+
+  return regex.test(str)
+}
+console.log(telephoneCheck("1 555)555-5555"))
+console.log(telephoneCheck("27576227382"))
+console.log(telephoneCheck("(275)76227382"))
+console.log(telephoneCheck("555)-555-5555"))
+console.log(telephoneCheck("(555-555-5555"))
+
+// these above should return false
