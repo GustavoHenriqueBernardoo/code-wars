@@ -1336,7 +1336,15 @@ function makeString(s) {
   return s.split(' ').map(w => w.charAt(0)).join('')
 }
 
-console.log(makeString("sees eyes xray yoat"))
+makeString("sees eyes xray yoat")
+
+// ===== No zeros for heros
+function noBoringZeros(n) {
+  // your code
+  const regex = /0*$/g
+  return parseInt(String(n).replace(regex, ''))
+}
+console.log(noBoringZeros(-1050))
 
 // ====================== FREE CODE CAMP
 
@@ -1799,11 +1807,10 @@ function rot13(str) {
 
 rot13("SERR PBQR PNZC")
 
-// Telephone Number Validator
-
 function telephoneCheck(str) {
 
-  const regex = /^[1]?[ ]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+  const regex = /^(1\s?)?(\d{3}|\(\d{3}\))[-|\s]?\d{3}[-|\s]?\d{4}$/im
+
 
 
   return regex.test(str)
