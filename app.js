@@ -1346,6 +1346,28 @@ function noBoringZeros(n) {
 }
 console.log(noBoringZeros(-1050))
 
+const numberFunction = function (array) {
+  // const obj = {}
+  // const arr = []
+  // for (let i = 0; i < array.length; i++) {
+  //   let index = i + 1
+  //   obj[index] = index
+  //   arr.push(obj[index] = array[i])
+  // }
+  // return obj
+  return array.map((elem, index) => `${index + 1}: ${elem}`)
+}
+
+numberFunction(["a", "b", "c"])
+
+function check(a, x) {
+  // your code here
+  const result = a.find(elem => x === elem)
+  return result === undefined ? false : true
+}
+
+console.log(check([66, 101], 67))
+
 // ====================== FREE CODE CAMP
 
 function sumAll(arr) {
@@ -1815,10 +1837,10 @@ function telephoneCheck(str) {
 
   return regex.test(str)
 }
-console.log(telephoneCheck("1 555)555-5555"))
-console.log(telephoneCheck("27576227382"))
-console.log(telephoneCheck("(275)76227382"))
-console.log(telephoneCheck("555)-555-5555"))
-console.log(telephoneCheck("(555-555-5555"))
+// console.log(telephoneCheck("1 555)555-5555"))
+// console.log(telephoneCheck("27576227382"))
+// console.log(telephoneCheck("(275)76227382"))
+// console.log(telephoneCheck("555)-555-5555"))
+// console.log(telephoneCheck("(555-555-5555"))
 
 // these above should return false
