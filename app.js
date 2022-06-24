@@ -1366,7 +1366,37 @@ function check(a, x) {
   return result === undefined ? false : true
 }
 
-console.log(check([66, 101], 67))
+check([66, 101], 67)
+
+// remove vowels
+
+function shortcut(string) {
+  const regex = /[aeiou]/g
+  return string.replace(regex, '');
+}
+
+shortcut('hello')
+
+// ===Small enough? - Beginner
+
+function smallEnough(a, limit) {
+  // const result = a.map(num => {
+  //   if (num <= limit) {
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  // })
+
+  // if (result.includes(false)) {
+  //   return false
+  // } else {
+  //   return true
+  // }
+  return a.every(num => num <= limit)
+}
+
+console.log(smallEnough([66, 101], 200))
 
 // ====================== FREE CODE CAMP
 
