@@ -1396,7 +1396,43 @@ function smallEnough(a, limit) {
   return a.every(num => num <= limit)
 }
 
-console.log(smallEnough([66, 101], 200))
+smallEnough([66, 101], 200)
+
+// === convert a number to binary
+
+function toBinary(n) {
+  return +n.toString(2)
+}
+
+// console.log(toBinary(1))
+// console.log(toBinary(2))
+// console.log(toBinary(4))
+
+// ==Twice as old
+
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+  const twiceAge = sonYearsOld * 2
+  console.log(dadYearsOld, twiceAge)
+  return twiceAge > dadYearsOld ? twiceAge - dadYearsOld : dadYearsOld - twiceAge
+}
+
+// console.log(twiceAsOld(55, 30)) // 5
+// console.log(twiceAsOld(42, 21)) //0 
+// console.log(twiceAsOld(22, 1)) // 20
+// console.log(twiceAsOld(29, 0)) //29
+
+// === Extract the domain name from a URL
+
+function domainName(url) {
+  // WTF HAHAHHAHA IT WORKS
+  const regex = /(www|http|https)(\:|\.)(\/\/)?/g
+  return url.replace(regex, '').split('.')[0]
+}
+
+console.log(domainName("http://google.com")) //, "google");
+console.log(domainName("http://google.co.jp")) //, "google");
+console.log(domainName("www.xakep.ru")) // "xakep");
+console.log(domainName("https://www.71n0hwhz.us/archive/")) // "71n0hwhz"
 
 // ====================== FREE CODE CAMP
 
