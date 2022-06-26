@@ -1344,7 +1344,7 @@ function noBoringZeros(n) {
   const regex = /0*$/g
   return parseInt(String(n).replace(regex, ''))
 }
-console.log(noBoringZeros(-1050))
+// console.log(noBoringZeros(-1050))
 
 const numberFunction = function (array) {
   // const obj = {}
@@ -1429,10 +1429,48 @@ function domainName(url) {
   return url.replace(regex, '').split('.')[0]
 }
 
-console.log(domainName("http://google.com")) //, "google");
-console.log(domainName("http://google.co.jp")) //, "google");
-console.log(domainName("www.xakep.ru")) // "xakep");
-console.log(domainName("https://www.71n0hwhz.us/archive/")) // "71n0hwhz"
+// console.log(domainName("http://google.com")) //, "google");
+// console.log(domainName("http://google.co.jp")) //, "google");
+// console.log(domainName("www.xakep.ru")) // "xakep");
+// console.log(domainName("https://www.71n0hwhz.us/archive/")) // "71n0hwhz"
+
+
+// String cleaning
+
+function stringClean(s) {
+  // Function will return the cleaned string
+  const regex = /\d/g
+  console.log(s.match(regex))
+  return s.replace(regex, '')
+}
+
+// console.log(stringClean("A1 A1! AAA   3J4K5L@!!!"))
+
+// == Area or Perimeter
+
+const areaOrPerimeter = function (l, w) {
+  // Return your answer
+  return l == w ? l * w : 2 * (l + w)
+}
+
+// === Convert boolean values to strings 'Yes' or 'No'.
+
+function boolToWord(bool) {
+  //...
+
+  return bool === true ? 'Yes' : 'No'
+}
+
+
+// ===== Mumbling
+
+function accum(s) {
+  // your code
+  return s.split('').map((letter, index) => letter.toUpperCase() + letter.repeat(index).toLowerCase()).join('-')
+}
+accum("abcd")//-> "A-Bb-Ccc-Dddd"
+accum("RqaEzty") //-> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+accum("cwAt") //-> "C-Ww-Aaa-Tttt"
 
 // ====================== FREE CODE CAMP
 
