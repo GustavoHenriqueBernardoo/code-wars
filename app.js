@@ -1468,9 +1468,56 @@ function accum(s) {
   // your code
   return s.split('').map((letter, index) => letter.toUpperCase() + letter.repeat(index).toLowerCase()).join('-')
 }
-accum("abcd")//-> "A-Bb-Ccc-Dddd"
-accum("RqaEzty") //-> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
-accum("cwAt") //-> "C-Ww-Aaa-Tttt"
+
+
+// ==== spinWords Stop gninnipS My sdroW!
+function spinWords(string) {
+  return string.split(' ').map(word => {
+    if (word.length >= 5) {
+      return word.split('').reverse().join('')
+    }
+    return word
+  }).join(' ')
+}
+
+spinWords("Hey fellow warriors")
+
+// Find the odd int
+
+
+function findOdd(A) {
+  //happy coding!
+  let count = []
+  const newObj = A.map(num => {
+    // return { num: 0++ }
+  })
+
+  return newObj
+}
+
+findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5])
+
+// [7] should return 7, because it occurs 1 time (which is odd).
+// [0] should return 0, because it occurs 1 time (which is odd).
+// [1,1,2] should return 2, because it occurs 1 time (which is odd).
+// [0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+// [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd)
+
+//Complementary DNA
+
+function DNAStrand(dna) {
+  //your code here
+  const dnaTable = {
+    A: 'T',
+    T: 'A',
+    G: 'C',
+    C: 'G',
+  }
+
+  return dna.split('').map(letter => dnaTable[letter]).join('')
+}
+
+console.log(DNAStrand("AAAA"))
 
 // ====================== FREE CODE CAMP
 
