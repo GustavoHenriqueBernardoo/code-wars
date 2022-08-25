@@ -12,7 +12,11 @@ public class Main {
 
     double decimalPlaces = TwoDecimalPlaces(5.5589);
 
-    System.out.println(decimalPlaces);
+    Integer find = find(new int[] { 1, 2, 3, 4, 6, 7, 8 });
+
+    String reverse = solution("world");
+
+    System.out.println(findSmallestInt(new int[] { 78, 56, 232, 12, 11, 43 }));
 
   }
 
@@ -40,4 +44,40 @@ public class Main {
 
     return Double.parseDouble(formatter.format(number));
   }
+
+  // Find the first non-consecutive number
+  static Integer find(final int[] array) {
+
+    for (int i = 1; i < array.length; i++) {
+      // System.out.println(i);
+      if (array[i] - array[i - 1] != 1) {
+        return array[i];
+      }
+    }
+
+    return null;
+  }
+
+  // Reversed Strings
+  public static String solution(String str) {
+
+    // Your code here...
+    String result = "";
+    for (int i = str.length() - 1; i >= 0; i--) {
+      result += str.charAt(i);
+    }
+    return result;
+
+  }
+
+  // Find the smallest integer in the array
+  public static int findSmallestInt(int[] args) {
+
+    Arrays.sort(args);
+
+    System.out.println(args);
+
+    return args[0];
+  }
+
 }
